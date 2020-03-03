@@ -1,0 +1,17 @@
+script:
+ - cd src/client_lib
+ - make lib
+ - cd ../..
+ - cd player/NymphCastPlayer
+ - mkdir build
+ - qmake ..
+ - make
+
+jobs:
+  include:
+    - dist: bionic
+    - os: osx
+      osx_image: xcode11.3
+    - os: windows
+    - dist: bionic
+      arch: arm64
